@@ -1,11 +1,15 @@
 from machine import Pin, time_pulse_us
-from utime import sleep_us
+from utime import sleep_us, sleep
 
 relay = Pin(18, Pin.OUT)
 trigger = Pin(17, Pin.OUT)
 echo = Pin(16, Pin.IN)
 ldr = Pin(19, Pin.IN)
 led = Pin(20, Pin.OUT)
+
+DELAY_RELAY_ON = 3
+
+DELAY_RELAY_OFF = 0
 
 def ldr_led_control():
     if ldr.value():
@@ -53,8 +57,10 @@ def distance_mm():
     
 def turn_relay_on():
     relay.value(0)
+    sleep(DELAY_RELAY_ON)
 def turn_relay_off():
     relay.value(1)
+    sleep(DELAY_RELAY_OFF)
     
 def control_pump_by_distance_mm(target_distance_in_mm):
     if distance_mm() <= target_distance_in_mm:
@@ -63,7 +69,7 @@ def control_pump_by_distance_mm(target_distance_in_mm):
         turn_relay_off()
 
 while True:
-    control_pump_by_distance_mm(70)
+    control_pump_by_distance_mm(110)
     ldr_led_control()
     
     
