@@ -6,6 +6,7 @@ trigger = Pin(17, Pin.OUT)
 echo = Pin(16, Pin.IN)
 ldr = Pin(19, Pin.IN)
 led = Pin(20, Pin.OUT)
+button = Pin(21, Pin.IN, Pin.PULL_DOWN)
 
 DELAY_RELAY_ON = 3
 
@@ -62,14 +63,20 @@ def turn_relay_off():
     relay.value(1)
     sleep(DELAY_RELAY_OFF)
     
-def control_pump_by_distance_mm(target_distance_in_mm):
-    if distance_mm() <= target_distance_in_mm:
+def is_button_pressed():
+    return button.value() == 1
+    
+def control_pump(target_distance_in_mm):
+    if is_button_pressed():
+        turn_relay_on()
+    elif distance_mm() <= target_distance_in_mm:
         turn_relay_on()
     else:
         turn_relay_off()
+        
 
 while True:
-    control_pump_by_distance_mm(110)
+    control_pump(110)
     ldr_led_control()
     
     
