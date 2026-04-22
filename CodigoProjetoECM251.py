@@ -12,11 +12,13 @@ DELAY_RELAY_ON = 3
 
 DELAY_RELAY_OFF = 0
 
-def ldr_led_control():
+def ldr_led_interrupt(pin):
     if ldr.value():
         led.value(1)
+        print(f"ligou: {ldr.value()}")
     else:
         led.value(0)
+        print(f"desligou: {ldr.value()}")
       
 def send_pulse_and_wait():
         """
@@ -74,9 +76,9 @@ def control_pump(target_distance_in_mm):
     else:
         turn_relay_off()
         
+ldr.irq(trigger=Pin.IRQ_FALLING, handler=ldr_led_interrupt)
 
 while True:
     control_pump(110)
-    ldr_led_control()
     
     
