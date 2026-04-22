@@ -1,4 +1,4 @@
-from machine import Pin, time_pulse_us
+from machine import Pin, time_pulse_us, ADC
 from utime import sleep_us, sleep
 
 relay = Pin(18, Pin.OUT)
@@ -7,6 +7,8 @@ echo = Pin(16, Pin.IN)
 ldr = Pin(19, Pin.IN)
 led = Pin(20, Pin.OUT)
 button = Pin(21, Pin.IN, Pin.PULL_DOWN)
+water_pin = Pin(27, Pin.OUT)
+water_sensor = ADC(26)
 
 DELAY_RELAY_ON = 3
 
@@ -15,10 +17,10 @@ DELAY_RELAY_OFF = 0
 def ldr_led_interrupt(pin):
     if ldr.value():
         led.value(1)
-        print(f"ligou: {ldr.value()}")
+        #print(f"ligou: {ldr.value()}")
     else:
         led.value(0)
-        print(f"desligou: {ldr.value()}")
+        #print(f"desligou: {ldr.value()}")
       
 def send_pulse_and_wait():
         """
@@ -59,13 +61,14 @@ def distance_mm():
         return mm
     
 def turn_relay_on():
-    relay.value(0)
+    relay.value(1)
     sleep(DELAY_RELAY_ON)
 def turn_relay_off():
-    relay.value(1)
+    relay.value(0)
     sleep(DELAY_RELAY_OFF)
     
 def is_button_pressed():
+    #print(f"botao: {button.value()}")
     return button.value() == 1
     
 def control_pump(target_distance_in_mm):
@@ -80,5 +83,17 @@ ldr.irq(trigger=Pin.IRQ_FALLING, handler=ldr_led_interrupt)
 
 while True:
     control_pump(110)
+    value = water_sensor.read_u16()
+    
+    # Optional: Convert to percentage
+    percentage = (value / 65535) * 100
+    
+    #print("Water Level Reading:", percentage)
+    
+    if(percentage > 15):
+        water_pin.value(1)
+    else:
+        water_pin.value(0)
+
     
     
