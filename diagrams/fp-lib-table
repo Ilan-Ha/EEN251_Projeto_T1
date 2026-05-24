@@ -1,0 +1,8 @@
+(fp_lib_table
+	(version 7)
+	(lib (name "EEN251") (type "KiCad") (uri "${KIPRJMOD}/EEN251.pretty") (options "") (descr ""))
+	(lib (name "EEN251") (type "KiCad") (uri "${KIPRJMOD}/EEN251.pretty") (options "") (descr ""))
+	(lib (name "EEN251") (type "KiCad") (uri "${KIPRJMOD}/EEN251.pretty") (options "") (descr ""))
+	(lib (name "een251") (type "KiCad") (uri "C:/Users/Delta/Documents/projects/EEN251_Projeto_T1/diagrams/een251.pretty") (options "") (descr ""))
+	(lib (name "een251") (type "KiCad") (uri "C:/Users/Delta/Documents/projects/EEN251_Projeto_T1/diagrams/een251.pretty") (options "") (descr ""))
+)

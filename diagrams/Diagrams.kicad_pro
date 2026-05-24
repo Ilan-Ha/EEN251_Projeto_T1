@@ -488,7 +488,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "DiagramaProjeto.kicad_pro",
+    "filename": "Diagrams.kicad_pro",
     "version": 3
   },
   "net_settings": {
@@ -643,18 +643,18 @@
     "subpart_id_separator": 0,
     "top_level_sheets": [
       {
-        "filename": "DiagramaProjeto.kicad_sch",
-        "name": "Root",
+        "filename": "Diagrams.kicad_sch",
+        "name": "Diagrams",
         "uuid": "ef29c05d-4fb6-4d44-9b43-7ef92cf1b17a"
       }
     ],
-    "used_designators": "WS1,#PWR18-19",
+    "used_designators": "#PWR1,#PWR20",
     "variants": []
   },
   "sheets": [
     [
       "ef29c05d-4fb6-4d44-9b43-7ef92cf1b17a",
-      "Root"
+      "Diagrams"
     ]
   ],
   "text_variables": {},
