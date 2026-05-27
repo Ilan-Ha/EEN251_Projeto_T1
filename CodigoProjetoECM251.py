@@ -5,10 +5,14 @@ relay = Pin(18, Pin.OUT)
 trigger = Pin(17, Pin.OUT)
 echo = Pin(16, Pin.IN)
 ldr = Pin(19, Pin.IN)
-led = Pin(1, Pin.OUT)
-button = Pin(0, Pin.IN, Pin.PULL_DOWN)
+led = Pin(20, Pin.OUT)
+button = Pin(21, Pin.IN, Pin.PULL_DOWN)
 water_pin = Pin(27, Pin.OUT)
 water_sensor = ADC(26)
+led_debbug = Pin(25,Pin.OUT)
+
+buttonOn = False
+led_debbug.value(0)
 
 DELAY_RELAY_ON = 3
 
@@ -63,23 +67,39 @@ def distance_mm():
 def turn_relay_on():
     relay.value(1)
     sleep(DELAY_RELAY_ON)
+    #print(f"rele ligado: {relay.value()}")
 def turn_relay_off():
     relay.value(0)
     sleep(DELAY_RELAY_OFF)
+    #print(f"rele desligado: {relay.value()}")
     
 def is_button_pressed():
     #print(f"botao: {button.value()}")
     return button.value() == 1
     
 def control_pump(target_distance_in_mm):
-    if is_button_pressed():
+    #print("botao: ",buttonOn)
+    if buttonOn:
         turn_relay_on()
+        #print("ligou")
     elif distance_mm() <= target_distance_in_mm:
         turn_relay_on()
+        #print("ligou")
     else:
         turn_relay_off()
+        #print("desligou")
         
+def button_handler(pin):
+    global buttonOn
+    buttonOn = not buttonOn
+    
+    if(buttonOn):
+        led_debbug.value(1)
+    else:
+        led_debbug.value(0)
+
 ldr.irq(trigger=Pin.IRQ_FALLING, handler=ldr_led_interrupt)
+button.irq(trigger=Pin.IRQ_RISING, handler=button_handler)
 
 while True:
     control_pump(110)
