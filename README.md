@@ -1,6 +1,9 @@
 # Bebedouro Inteligente para Pets
 
-## Projeto Acadêmico em Grupo
+## Integrantes do Grupo:
+- Diego Mourão Oliveira
+- Ilan Hameiry
+- Luca Lopes Martinho
 
 ## Descrição do Projeto
 
@@ -47,7 +50,6 @@ Além disso, o sistema contará com:
 | RO-03 | Iluminação em LED quando necessário | Obrigatório |
 | RO-04 | Botão para ativação manual | Obrigatório |
 | RO-05 | Botão de reset | Obrigatório |
-| RO-06 | Sensor de nível de água | Obrigatório |
 
 ### Requisitos Desejáveis
 
@@ -55,12 +57,21 @@ Além disso, o sistema contará com:
 |---|---|---|
 | RD-01 | Display com informações úteis de uso: nível de água e número de ativações | Desejável |
 | RD-02 | Mensagem via Bluetooth quando houver presença detectada ou nível baixo de água | Desejável |
+| RD-03 | Sensor de nível de água | Desejável |
 
 ### Requisitos Opcionais
 
 | ID | Requisito | Tipo |
 |---|---|---|
 | ROP-03 | Programação de ativação em intervalos de tempo definidos | Opcional |
+
+## Softwares Utilizados
+
+Durante o desenvolvimento do projeto foram utilizados os seguintes softwares:
+
+- KiCad — utilizado para esquematização eletrônica e desenvolvimento do diagrama/layout da PCB;
+- Thonny — utilizado para programação, testes e depuração do Raspberry Pi Pico;
+- Autodesk Fusion 360, Solidworks — utilizados para modelagem 3D da estrutura do bebedouro;
 
 ## Tecnologias Envolvidas
 
