@@ -1,12 +1,12 @@
 from machine import Pin, time_pulse_us, ADC
 from utime import sleep_us, sleep
 
-relay = Pin(18, Pin.OUT)
-trigger = Pin(17, Pin.OUT)
-echo = Pin(16, Pin.IN)
-ldr = Pin(19, Pin.IN)
-led = Pin(20, Pin.OUT)
-button = Pin(21, Pin.IN, Pin.PULL_DOWN)
+relay = Pin(17, Pin.OUT)
+trigger = Pin(15, Pin.OUT)
+echo = Pin(14, Pin.IN)
+ldr = Pin(16, Pin.IN)
+led = Pin(22, Pin.OUT)
+button = Pin(28, Pin.IN, Pin.PULL_DOWN)
 water_pin = Pin(27, Pin.OUT)
 water_sensor = ADC(26)
 led_debbug = Pin(25,Pin.OUT)
