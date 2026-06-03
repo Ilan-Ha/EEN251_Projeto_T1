@@ -65,6 +65,52 @@ Além disso, o sistema contará com:
 |---|---|---|
 | ROP-03 | Programação de ativação em intervalos de tempo definidos | Opcional |
 
+## Diagrama de Blocos
+```mermaid
+flowchart TD
+    MCU["Microcontrolador<br/>(Raspberry Pi Pico)"]
+
+    OLED["Display<br/>OLED I2C<br/>128x32 Px"]
+    RTC["Módulo Real Time Clock<br/>DS1307 (Opcional)"]
+    LDR["Sensor de Luz<br/>LDR"]
+    SOIL["Sensor de nível<br/>de água"]
+    BT["Módulo Bluetooth<br/>HM10"]
+
+    LEVEL1["Conversor de Nível Lógico<br/>(5V ↔ 3.3V)"]
+    US["Sensor de Distância<br/>Ultrassom HC-SR04"]
+
+    LEVEL2["Conversor de Nível Lógico<br/>(5V ↔ 3.3V)"]
+    RELAY["Módulo Relé"]
+    PUMP["Mini Bomba de Água<br/>DC-JT160"]
+
+    MCU --> OLED 
+    RTC --> MCU
+    LDR --> MCU
+    SOIL --> MCU
+    MCU --> BT
+
+    US --> LEVEL1
+    LEVEL1 --> MCU
+
+    MCU --> LEVEL2
+    LEVEL2 --> RELAY
+    RELAY --> PUMP
+
+    %% Optional styling
+    classDef sensor fill:#cfe8f3,stroke:#333,stroke-width:1px;
+    classDef converter fill:#f4c542,stroke:#333,stroke-width:1px;
+    classDef relay fill:#6abf4b,stroke:#333,stroke-width:1px;
+    classDef controller fill:#cfe8f3,stroke:#333,stroke-width:2px;
+
+    class MCU controller;
+    class OLED,RTC,LDR,SOIL,BT,US,PUMP sensor;
+    class LEVEL1,LEVEL2 converter;
+    class RELAY relay;
+    classDef default fill:#cfe8f3,color:#000,stroke:#000,stroke-width:2px;
+
+    linkStyle default stroke:#000,stroke-width:2px;
+```
+
 ## Softwares Utilizados
 
 Durante o desenvolvimento do projeto foram utilizados os seguintes softwares:
