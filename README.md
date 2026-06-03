@@ -134,8 +134,8 @@ O projeto utiliza conceitos de:
 ## Imagens do Modelo
 
 <p float="left">
-<img src="./media/images/bebedouro_vista_frontal.png" alt="Vista Frontal" width="500">
-<img src="./media/images/bebedouro_vista_lateral.png" alt="Vista Lateral" width="500">
-<img src="./media/images/bebedouro_vista_superior.png" alt="Vista Superior" width="500">
-<img src="./media/images/bebedouro_vista_tridimensional.png" alt="Vista Tridimensional" width="500">
+<img src="./media/images/bebedouro_vista_frontal.png" alt="Vista Frontal" width="50%">
+<img src="./media/images/bebedouro_vista_lateral.png" alt="Vista Lateral" width="50%">
+<img src="./media/images/bebedouro_vista_superior.png" alt="Vista Superior" width="50%">
+<img src="./media/images/bebedouro_vista_tridimensional.png" alt="Vista Tridimensional" width="50%">
 </p>
