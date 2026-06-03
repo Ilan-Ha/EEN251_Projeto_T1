@@ -133,6 +133,9 @@ O projeto utiliza conceitos de:
 
 ## Imagens do Modelo
 
-![Vista Frontal](./media/images/bebedouro_vista_frontal.png) ![Vista Lateral](./media/images/bebedouro_vista_lateral.png)
-![Vista Superior](./media/images/bebedouro_vista_superior.png) ![Vista Tridimensional](./media/images/bebedouro_vista_tridimensional.png)
+| Vista Frontal | Vista Lateral |
+| :---: | :---: |
+| ![](./media/images/bebedouro_vista_frontal.png) | ![](./media/images/bebedouro_vista_lateral.png) |
+| Vista Superior | Vista Isométrica |
+| ![](./media/images/bebedouro_vista_superior.png) | ![](./media/images/bebedouro_vista_tridimensional.png) |
 
