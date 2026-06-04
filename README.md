@@ -139,3 +139,9 @@ O projeto utiliza conceitos de:
 | Vista Superior | Vista Isométrica |
 | ![](./media/images/bebedouro_vista_superior.png) | ![](./media/images/bebedouro_vista_tridimensional.png) |
 
+## Apresentação do Projeto em Vídeo
+
+Confira o funcionamento e a apresentação completa do Bebedouro Inteligente no vídeo abaixo:
+
+[Clique aqui para assistir ao vídeo](https://youtu.be/lJpa5DYjjUw)
+
